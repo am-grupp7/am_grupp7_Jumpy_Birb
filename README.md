@@ -1,1 +1,1 @@
-# AMGrupp7_Jumpy_Birb
+# am_grupp7_Jumpy_Birb

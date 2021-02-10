@@ -1,30 +1,36 @@
 //Visuell representation av Birb.
-const cvs = document.getElementById("canvas");
-const ctx = cvs.getContext("2d");
-const birbSprite = new Image();
 
 
-class Birb {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
+export class Birb {
+        constructor(cvs, ctx) {
+            this.cvs = cvs;
+            this.ctx = ctx;
+
+            this.animation = [
+                {sX: 0, sY: 0},
+                {sX: 0, sY: 26}, 
+                {sX: 0, sY: 52},
+                {sX: 0, sY: 26}
+            ],
+            this.x = 50, 
+            this.y = 50, 
+            this.w = 50, 
+            this.h = 26;
+    
+            this.frame = 0;
+            this.birbSprite = new Image();  
+            this.birbSprite.src = "images/birb.png"
+           
     }
-
+    
     draw() {
-        // ctx.fillStyle = "#70c5ce";
-        // ctx.beginPath();
-        // ctx.arc(75, 75, 10, 0, 2 * Math.PI);
-        // ctx.stroke
-        // ctx.stroke();
-        // ctx.fill();
+        //let birb = this.animation[this.frame];
+        let animation = this.animation[this.frame];
+        this.ctx.drawImage(this.birbSprite, animation.sX, animation.sY, this.w, this.h, this.x, this.y, 
+            this.w, this.h);
 
-        let circle = new Path2D();
-        circle.arc(75, 75, 10, 0, 2 * Math.PI);
-        ctx.fillStyle = "#70c5ce";
-        ctx.fill(circle);
     }
 }
 
-const birb = new Birb(10, 10)
 
-export { birb };
+

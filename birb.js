@@ -1,6 +1,4 @@
 //Visuell representation av Birb.
-
-
 export class Birb {
         constructor(cvs, ctx) {
             this.cvs = cvs;

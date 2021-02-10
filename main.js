@@ -1,12 +1,28 @@
-/*import { add } from './birb.js';
-let a = 1,
-    b = 1
+import{birb} from './birb.js';
 
-let sum = add(a, b)
-console.log(sum)*/
-const cvs = document.getElementById("canvas")
-const ctx = cvs.getContex("2d")
+
+//Variables and constants.
+let frames = 0;
+
+loop();
+
+//Draw
 function draw() {
-    ctx.fillStyle ="#70c5ce"
-    ctx.fillRect(0, 0, cvs.width, cvs.height)
+    birb.draw();
+    //bg.draw();
+    //Här lägger vi våra nya classer. Se BIRB för hur man gör med import/export.
+}
+
+//Update
+function update() {
+
+}
+
+//Gameloop
+function loop() {
+    update();
+    draw();
+    frames++;
+
+    requestAnimationFrame(loop);
 }

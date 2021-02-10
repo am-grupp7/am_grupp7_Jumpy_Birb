@@ -1,5 +1,6 @@
 import { Birb } from './birb.js';
 import { Background } from './background.js';
+import { Foreground } from './foreground.js';
 
 
 class Main {
@@ -9,13 +10,14 @@ class Main {
         this.frames = 0;
         this.birb = new Birb(cvs, ctx);
         this.background = new Background(ctx);
+        this.foreground = new Foreground(ctx);
     }
 
     //Draw
     draw() {
         this.background.draw();
         this.birb.draw();
-        //bg.draw();
+        this.foreground.draw();
         //Här lägger vi våra nya classer. Se BIRB för hur man gör med import/export.
     }
 

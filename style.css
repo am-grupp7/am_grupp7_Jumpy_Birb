@@ -1,6 +1,7 @@
 body {
-    background-color: black;
+    
 }
+
 #canvas {
     width: 720px; 
     height: 449px;
@@ -8,7 +9,7 @@ body {
     display: block;
     margin: 0 auto;
     margin-top: 10%; 
-    background-image: url("background.jpg");
+   
     
 }
 

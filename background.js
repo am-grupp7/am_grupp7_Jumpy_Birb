@@ -1,19 +1,24 @@
-import {cvs, ctx} from './main.js';
 
-const bgSprite = new Image()
-bgSprite.src = "images/background.png";
+export class Background {
+    constructor(ctx) {
+        this.ctx = ctx;
 
-const background = {
-    sX : 0,
-    sY : 0,
-    w : 720,
-    h : 449,
-    x : 0,
-    y : 0,
+                
+        this.sX = 0,
+        this.sY = 0,
+        this.x = 0,
+        this.y = 0,
+        this.w = 720,
+        this.h = 449;
 
-    draw : function() {
-        ctx.drawImage(bgSprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        this.backgroundSprite = new Image();
+        this.backgroundSprite.src = "images/background.png"; 
+    }
+    
+    draw() {
+        //this.ctx.fillStyle = "#70c5ce"
+        //this.ctx.fillRect(0, 0, 720, 449);
+        this.ctx.drawImage(this.backgroundSprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        
     }
 }
-
-export {background};

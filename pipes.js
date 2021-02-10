@@ -34,7 +34,7 @@ const pipes = {
         }
     },
 
-    update
+
 }
 
 export { draw };

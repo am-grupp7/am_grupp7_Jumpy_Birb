@@ -1,15 +1,13 @@
 import { Birb } from './birb.js';
 
+
 class Main {
     constructor(cvs, ctx) {
         this.cvs = cvs;
         this.ctx = ctx;
-        this.birb;
         this.frames = 0;
         this.birb = new Birb(cvs, ctx);
     }
-
-    //Variables and constants.
 
     //Draw
     draw() {
@@ -20,7 +18,7 @@ class Main {
 
     //Update
     update() {
-        let somevariable = "hej";
+
     }
 
     //Gameloop

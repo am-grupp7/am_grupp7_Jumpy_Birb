@@ -13,6 +13,8 @@ export class Pipes {
 
         this.pipes = new Image();
         this.pipes.src = "images/TopPipe.png"; 
+
+        // Testing
     }
     
     draw() {

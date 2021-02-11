@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-behövs ej?
-=======
-
 export class Background {
     constructor(ctx) {
         this.ctx = ctx;
@@ -25,4 +21,3 @@ export class Background {
         
     }
 }
->>>>>>> bfe531a28e3bbc1f3944a2d9fc4f16a8aa6d18ec

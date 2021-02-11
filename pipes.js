@@ -1,40 +1,22 @@
-const topPipe = new Image();
-topPipe.src = "TopPipe.png";
+export class Pipes {
+    constructor(cvs, ctx) {
+        this.cvs = cvs;
+        this.ctx = ctx;
 
-const pipes = {
-    position : [],
+                
+        this.sX = 0,
+        this.sY = 0,
+        this.x = 500,
+        this.y = -80,
+        this.w = 100,
+        this.h = 249;
 
-    top : {
-        sX : 0,
-        sY : 0
-    },
-    bottom : {
-        sX : 0,
-        sY : 0
-    },
-
-    w : 50,
-    h : 327,
-    gap : 85,
-    maxYPos : -150,
-    dx : 2,
-
-    draw : function(){
-        for(let i = 0; i < this.position.length; i++){
-            let p = this.position[i];
-
-            let topYPos = p.y;
-            let bottomYPos = p.y + this.h + this.gap;
-
-            //top pipe
-            ctx.drawImage(TopPipe, this.top.sX, this.top.sY, this.w, this.h, p.x, topYPos, this.w, this.h);
-
-            //bottom pipe
-            ctx.drawImage(TopPipe, this.bottom.sX, this.bottom.sY, this.w, this.h, p.x, bottomYPos, this.w, this.h);
-        }
-    },
-
-    update
+        this.pipes = new Image();
+        this.pipes.src = "images/TopPipe.png"; 
+    }
+    
+    draw() {
+      this.ctx.drawImage(this.pipes, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        
+    }
 }
-
-export { draw };

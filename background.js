@@ -16,9 +16,6 @@ export class Background {
     }
     
     draw() {
-        //this.ctx.fillStyle = "#70c5ce"
-        //this.ctx.fillRect(0, 0, 720, 449);
         this.ctx.drawImage(this.backgroundSprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
-        
     }
 }

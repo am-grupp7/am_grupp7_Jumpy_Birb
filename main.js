@@ -11,6 +11,7 @@ class Main {
         this.birb = new Birb(cvs, ctx);
         this.pipes = new Pipes(cvs, ctx);
         this.background = new Background(ctx);
+        this.foreground = new Foreground(ctx);
     }
 
     //Draw

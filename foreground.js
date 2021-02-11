@@ -1,4 +1,3 @@
-
 export class Foreground {
     constructor(ctx) {
         this.ctx = ctx;

@@ -1,7 +1,7 @@
 import { Birb } from './birb.js';
 import { Background } from './background.js';
 import { Pipes } from './pipes.js';
-
+import { Foreground } from './foreground.js';
 
 class Main {
     constructor(cvs, ctx) {
@@ -20,6 +20,7 @@ class Main {
         this.birb.draw();
         //bg.draw();
         this.pipes.draw();
+        this.foreground.draw();
         //Här lägger vi våra nya classer. Se BIRB för hur man gör med import/export.
     }
 

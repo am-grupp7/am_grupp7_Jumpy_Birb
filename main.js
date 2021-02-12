@@ -28,14 +28,13 @@ class Main {
 
     //Update
     update() {
-
+        this.birb.update();
     }
 
     //Gameloop
     loop() {
         this.update();
         this.draw();
-        this.frames++;
         requestAnimationFrame(() => this.loop());
     }
 

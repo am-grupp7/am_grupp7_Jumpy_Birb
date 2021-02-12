@@ -14,7 +14,7 @@ export class Birb {
             this.y = 50, 
             this.w = 50, 
             this.h = 26;
-    
+            this.frames = 0;
             this.frame = 0;
             this.birbSprite = new Image();  
             this.birbSprite.src = "images/birb.png"
@@ -27,6 +27,15 @@ export class Birb {
         this.ctx.drawImage(this.birbSprite, animation.sX, animation.sY, this.w, this.h, this.x, this.y, 
             this.w, this.h);
 
+    }
+
+    update() {
+        let period = 10;
+        console.log("frame", this.frame);
+        console.log("frames", this.frames);
+        this.frame += this.frames% period == 0 ? 1 : 0;
+        this.frame = this.frame%this.animation.length;
+        this.frames++;
     }
 }
 

@@ -9,11 +9,11 @@ class Main {
         this.cvs = cvs;
         this.ctx = ctx;
         this.frames = 0;
-        this.birb = new Birb(cvs, ctx);
-        this.controls = new Controls(cvs);
+        this.birb = new Birb(cvs, ctx, this.frames);
         this.pipes = new Pipes(cvs, ctx);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);
+        this.controls = new Controls(cvs)
     }
 
     //Draw
@@ -28,14 +28,13 @@ class Main {
 
     //Update
     update() {
-
+        this.birb.update();
     }
 
     //Gameloop
     loop() {
         this.update();
         this.draw();
-        this.frames++;
         requestAnimationFrame(() => this.loop());
     }
 

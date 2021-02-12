@@ -9,8 +9,7 @@ class Main {
         this.cvs = cvs;
         this.ctx = ctx;
         this.frames = 0;
-        this.birb = new Birb(cvs, ctx);
-        this.controls = new Controls(cvs);
+        this.birb = new Birb(cvs, ctx, this.frames);
         this.pipes = new Pipes(cvs, ctx);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);

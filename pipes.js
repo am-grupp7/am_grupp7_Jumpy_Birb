@@ -35,4 +35,5 @@ export class Pipes {
       this.ctx.drawImage(this.pipeBottom, this.btmsX, this.btmsY, this.btmw, this.btmh, this.btmx, this.btmy, this.btmw, this.btmh);
 
     }
+
 }

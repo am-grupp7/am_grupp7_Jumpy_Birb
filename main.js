@@ -13,6 +13,7 @@ class Main {
         this.pipes = new Pipes(cvs, ctx);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);
+        this.controls = new Controls(cvs)
     }
 
     //Draw

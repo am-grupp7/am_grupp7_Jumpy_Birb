@@ -1,6 +1,6 @@
 //Visuell representation av Birb.
 export class Birb {
-        constructor(cvs, ctx) {
+        constructor(cvs, ctx, frames) {
             this.cvs = cvs;
             this.ctx = ctx;
 
@@ -27,6 +27,12 @@ export class Birb {
         this.ctx.drawImage(this.birbSprite, animation.sX, animation.sY, this.w, this.h, this.x, this.y, 
             this.w, this.h);
 
+    }
+
+    update() {
+        let period = 5;
+        this.frame += frames % this.period == 0 ? 1 : 0;
+        this.frame = this.frame % this.animation.length;
     }
 }
 

@@ -8,7 +8,7 @@ class Main {
         this.cvs = cvs;
         this.ctx = ctx;
         this.frames = 0;
-        this.birb = new Birb(cvs, ctx);
+        this.birb = new Birb(cvs, ctx, frames);
         this.pipes = new Pipes(cvs, ctx);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);
@@ -26,7 +26,7 @@ class Main {
 
     //Update
     update() {
-
+        this.birb.update();
     }
 
     //Gameloop
@@ -34,7 +34,7 @@ class Main {
         this.update();
         this.draw();
         this.frames++;
-        requestAnimationFrame(() => this.loop());
+        window.requestAnimationFrame(() => this.loop());
     }
 
     start() {

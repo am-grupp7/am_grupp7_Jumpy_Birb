@@ -1,9 +1,7 @@
 
 export class Background {
     constructor(ctx) {
-        this.ctx = ctx;
-
-                
+        this.ctx = ctx;       
         this.sX = 0,
         this.sY = 0,
         this.x = 0,

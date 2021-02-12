@@ -1,6 +1,6 @@
 //Visuell representation av Birb.
 export class Birb {
-        constructor(cvs, ctx, frames) {
+        constructor(cvs, ctx) {
             this.cvs = cvs;
             this.ctx = ctx;
 
@@ -14,7 +14,7 @@ export class Birb {
             this.y = 50, 
             this.w = 50, 
             this.h = 26;
-    
+            this.frames = 0;
             this.frame = 0;
             this.birbSprite = new Image();  
             this.birbSprite.src = "images/birb.png"
@@ -30,9 +30,12 @@ export class Birb {
     }
 
     update() {
-        let period = 5;
-        this.frame += frames % this.period == 0 ? 1 : 0;
-        this.frame = this.frame % this.animation.length;
+        let period = 10;
+        console.log("frame", this.frame);
+        console.log("frames", this.frames);
+        this.frame += this.frames% period == 0 ? 1 : 0;
+        this.frame = this.frame%this.animation.length;
+        this.frames++;
     }
 }
 

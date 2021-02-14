@@ -1,10 +1,13 @@
 export class Controls {
-    constructor(cvs) {
+    constructor(cvs, birb) {
+        
         cvs.addEventListener('click', function () {
-            alert("Hejsan Hoppsan")
+            birb.flap();
         }, false);
     }
 
     draw() {
+        
     }
+
 }

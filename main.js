@@ -8,12 +8,18 @@ class Main {
     constructor(cvs, ctx) {
         this.cvs = cvs;
         this.ctx = ctx;
+        
         this.frames = 0;
-        this.birb = new Birb(cvs, ctx, this.frames);
-        this.pipes = new Pipes(cvs, ctx);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);
-        this.controls = new Controls(cvs)
+        this.collisions = {
+            fgCollision : this.cvs.height-this.foreground.h
+        }
+        this.birb = new Birb(cvs, ctx, this.collisions);
+        this.pipes = new Pipes(cvs, ctx);
+        
+        this.controls = new Controls(cvs, this.birb)
+
     }
 
     //Draw

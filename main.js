@@ -11,6 +11,7 @@ class Main {
         this.frames = 0;
         this.birb = new Birb(cvs, ctx, this.frames);
         this.pipes = new Pipes(cvs, ctx);
+        this.controls = new Controls(cvs);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);
     }

@@ -14,6 +14,7 @@ class Main {
         this.controls = new Controls(cvs);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);
+        this.controls = new Controls(cvs)
     }
 
     //Draw

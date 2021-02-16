@@ -5,16 +5,15 @@ import { Foreground } from './foreground.js';
 import { Controls } from './controls.js';
 
 class Main {
-    constructor(cvs, ctx) {
+    constructor(cvs, ctx, body) {
         this.cvs = cvs;
         this.ctx = ctx;
         this.frames = 0;
         this.birb = new Birb(cvs, ctx, this.frames);
         this.pipes = new Pipes(cvs, ctx);
-        this.controls = new Controls(cvs);
+        this.controls = new Controls(cvs, body);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);
-        this.controls = new Controls(cvs)
     }
 
     //Draw
@@ -46,6 +45,6 @@ class Main {
 
 const cvs = document.getElementById("canvas");
 const ctx = cvs.getContext("2d");
-let app = new Main(cvs, ctx);
+const body = document.body;
+let app = new Main(cvs, ctx, body);
 app.start()
-

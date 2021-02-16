@@ -1,10 +1,13 @@
 export class Controls {
-    constructor(cvs) {
-        cvs.addEventListener('click', function () {
-            alert("Hejsan Hoppsan")
-        }, false);
-    }
+  constructor(cvs, body) {
+    body.addEventListener('keyup', event => {
+      if (event.code === 'Space') {
+        console.log('Hej allihopa')
+      }
+    }) 
+  }
 
-    draw() {
-    }
+  draw() {
+  }
+
 }

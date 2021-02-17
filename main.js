@@ -15,7 +15,7 @@ class Main {
         this.frames = 0;
         this.birb = new Birb(cvs, ctx, this.frames, this.collisions);
         this.pipes = new Pipes(cvs, ctx);
-        this.controls = new Controls(cvs, body);
+        this.controls = new Controls(body);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);
         this.startScreen = new StartScreen(cvs, ctx, state);
@@ -58,7 +58,7 @@ const cvs = document.getElementById("canvas");
 const ctx = cvs.getContext("2d");
 const body = document.body;
 const state = {
-    current : 1,
+    current : 0,
     getReady : 0,
     game : 1,
     over : 2

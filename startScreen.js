@@ -4,14 +4,14 @@ export class StartScreen {
         this.cvs = cvs, 
         this.state = state,             
         this.sX = 0,
-        this.sY = 228,
-        this.x = cvs.width/2 - 173/2,
-        this.y = 80,
-        this.w = 173,
-        this.h = 152;
+        this.sY = 0,
+        this.x = cvs.width/2 - 200/2,
+        this.y = 175,
+        this.w = 200,
+        this.h = 150;
 
         this.startSprite = new Image();
-        this.startSprite.src = "images/sprite.png"; 
+        this.startSprite.src = "images/Start.png"; 
     }
     
     draw(state) {

@@ -54,7 +54,7 @@ const cvs = document.getElementById("canvas");
 const ctx = cvs.getContext("2d");
 const body = document.body;
 const state = {
-    current : 2,
+    current : 1,
     getReady : 0,
     game : 1,
     over : 2

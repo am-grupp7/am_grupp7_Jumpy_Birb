@@ -29,6 +29,7 @@ class Main {
     //Update
     update() {
         this.birb.update();
+        this.pipes.update();
     }
 
     //Gameloop

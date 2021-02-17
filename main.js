@@ -7,13 +7,15 @@ import { StartScreen } from './startScreen.js';
 import { GameOver } from './gameOver.js';
 
 class Main {
-    constructor(cvs, ctx, state) {
+  
+    constructor(cvs, ctx, body, state) {
         this.cvs = cvs;
         this.ctx = ctx;
         this.state = state;
         this.frames = 0;
         this.birb = new Birb(cvs, ctx, this.frames);
         this.pipes = new Pipes(cvs, ctx);
+        this.controls = new Controls(cvs, body);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);
         this.controls = new Controls(cvs);
@@ -51,12 +53,13 @@ class Main {
 
 const cvs = document.getElementById("canvas");
 const ctx = cvs.getContext("2d");
+const body = document.body;
 const state = {
     current : 2,
     getReady : 0,
     game : 1,
     over : 2
 }
-let app = new Main(cvs, ctx, state);
+let app = new Main(cvs, ctx, body, state);
 app.start()
 

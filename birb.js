@@ -31,8 +31,6 @@ export class Birb {
 
     update() {
         let period = 10;
-        console.log("frame", this.frame);
-        console.log("frames", this.frames);
         this.frame += this.frames% period == 0 ? 1 : 0;
         this.frame = this.frame%this.animation.length;
         this.frames++;

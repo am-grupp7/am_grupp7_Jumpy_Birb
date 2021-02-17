@@ -3,6 +3,7 @@ export class Controls {
     body.addEventListener('keyup', event => {
       if (event.code === 'Space') {
         console.log('Hej allihopa')
+        alert('hej allihopa')
       }
     }) 
   }

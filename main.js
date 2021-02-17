@@ -11,7 +11,6 @@ class Main {
     constructor(cvs, ctx, body, state) {
         this.cvs = cvs;
         this.ctx = ctx;
-        this.pipes = new Pipes(cvs, ctx);
         this.state = state;
         this.frames = 0;
         this.birb = new Birb(cvs, ctx, this.frames, this.collisions);

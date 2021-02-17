@@ -33,11 +33,6 @@ export class Birb {
     }
 
     update() {
-<<<<<<< HEAD
-        let period = 10;
-        this.frame += this.frames% period == 0 ? 1 : 0;
-        this.frame = this.frame%this.animation.length;
-=======
 
         //Animation
         let period = 5;
@@ -57,7 +52,6 @@ export class Birb {
          
         }
 
->>>>>>> main
         this.frames++;
     }
 

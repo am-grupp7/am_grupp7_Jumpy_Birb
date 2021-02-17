@@ -18,7 +18,6 @@ class Main {
         this.controls = new Controls(cvs, body);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);
-        this.controls = new Controls(cvs);
         this.startScreen = new StartScreen(cvs, ctx, state);
         this.gameOver = new GameOver(cvs, ctx, state);
     }
@@ -55,7 +54,7 @@ const cvs = document.getElementById("canvas");
 const ctx = cvs.getContext("2d");
 const body = document.body;
 const state = {
-    current : 2,
+    current : 0,
     getReady : 0,
     game : 1,
     over : 2

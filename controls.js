@@ -1,12 +1,12 @@
 export class Controls {
-  constructor(body) {
+  constructor(body, birb) {
     body.addEventListener('keyup', event => {
       if (event.code === 'Space') {
-        console.log('Hej allihopa')
+        birb.flap()
       }
     }) 
   }
-
+  
   draw() {
   }
 

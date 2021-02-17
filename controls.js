@@ -1,13 +1,13 @@
 export class Controls {
-    constructor(cvs, birb) {
-        
-        cvs.addEventListener('click', function () {
-            birb.flap();
-        }, false);
-    }
+  constructor(body) {
+    body.addEventListener('keyup', event => {
+      if (event.code === 'Space') {
+        console.log('Hej allihopa')
+      }
+    }) 
+  }
 
-    draw() {
-        
-    }
+  draw() {
+  }
 
 }

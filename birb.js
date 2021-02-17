@@ -52,9 +52,6 @@ export class Birb {
          
         }
 
-
-
-
         this.frames++;
     }
 

@@ -13,16 +13,16 @@ class Main {
         this.ctx = ctx;
         this.state = state;
         this.frames = 0;
-        this.birb = new Birb(cvs, ctx, this.frames, this.collisions);
         this.pipes = new Pipes(cvs, ctx);
-        this.controls = new Controls(body);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);
         this.startScreen = new StartScreen(cvs, ctx, state);
         this.gameOver = new GameOver(cvs, ctx, state);
         this.collisions = {
-            fgCollision : this.cvs.height-this.foreground.h
+            fgCollision : this.cvs.height-this.foreground.h       
         }
+        this.birb = new Birb(cvs, ctx, this.frames, this.collisions);
+        this.controls = new Controls(body, this.birb);
        
     }
 
@@ -66,4 +66,3 @@ const state = {
 }
 let app = new Main(cvs, ctx, body, state);
 app.start()
-

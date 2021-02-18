@@ -9,17 +9,17 @@ export class Birb {
             { sX: 0, sY: 24 },
             { sX: 0, sY: 50 },
             { sX: 0, sY: 24 }
-        ],
-            this.x = 50,
-            this.y = 0,
-            this.w = 50,
-            this.h = 26,
-            this.frames = 0,
-            this.frame = 0,
-            this.birbSprite = new Image(),
-            this.birbSprite.src = "images/birb.png",
-            this.speed = 0,
-            this.gravity = 0.05,
+        ];
+            this.x = 50;
+            this.y = 0;
+            this.w = 50;
+            this.h = 26;
+            this.frames = 0;
+            this.frame = 0;
+            this.birbSprite = new Image();
+            this.birbSprite.src = "images/birb.png";
+            this.speed = 0;
+            this.gravity = 0.05;
             this.jump = 2.3;
 
     }

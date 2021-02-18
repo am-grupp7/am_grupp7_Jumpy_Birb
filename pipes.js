@@ -1,71 +1,62 @@
 export class Pipes {
 
-    constructor(cvs, ctx) {
+  constructor(cvs, ctx) {
 
-      this.position = [] 
-      this.frames = 0
+    this.position = [100]
+    this.frames = 0
 
-        this.cvs = cvs
-        this.ctx = ctx
+    this.cvs = cvs
+    this.ctx = ctx
 
-        this.dx = 2
-             
-        this.topsX = 0
-        this.topsY = 0
-        
-        this.topx = 500
-        this.topy = -80
+    this.dx = 2
+    this.srcX = 0
+    this.srcY = 0
+    this.width = 100
+    this.height = 249
+    this.gap = 80
 
-        this.topw = 100
-        this.toph = 249
-
-        this.pipeTop = new Image()
-        this.pipeTop.src = "images/TopPipe.png"
-      
-        this.btmsX = 0
-        this.btmsY = 0
-
-        this.btmx = 500
-        this.btmy = 240
-
-        this.btmw = 100,
-        this.btmh = 249,
-
-        this.pipeBottom = new Image()
-        this.pipeBottom.src = "images/BottomPipe.png"
-
+    this.topPosition = {
+      x: 500,
+      y: 0
     }
-    
-    draw() {
-      console.log("draw")
-      this.ctx.drawImage(this.pipeTop, this.topsX, this.topsY, this.topw, this.toph, this.topx, this.topy, this.topw, this.toph)
-      this.ctx.drawImage(this.pipeBottom, this.btmsX, this.btmsY, this.btmw, this.btmh, this.btmx, this.btmy, this.btmw, this.btmh)
+    this.bottomPosition = {
+      x: 500,
+      y: 0
     }
 
-    update() {
-      console.log("update")
-      if (this.frames % 100 == 0){
-        this.position.push(
-          {
-            topx : this.cvs.width,
-            topy : this.topy 
-          }
-          
-        )
-        
-      }
-      console.log("position", this.position)
-      for (let i = 0; i < this.position.length; i++) {
-        let p = this.position[i]        
-        p.topx -= this.dx
-        console.log("p.topx", p.topx)
+    this.pipeTop = new Image()
+    this.pipeTop.src = "images/TopPipe.png"
 
-        if(p.topx + this.topw <= 0){
-          this.position.shift()
-        }
-      }
-        this.frames++
+    this.pipeBottom = new Image()
+    this.pipeBottom.src = "images/BottomPipe.png"
+  }
+
+  draw() {
+    for (let i = 0; i < this.position.length; i++) {
+      let p = this.position[i];
+
+      let topYPos = this.topPosition.y;
+      let bottomYPos = this.bottomPosition.y + this.height + this.gap;
+
+      this.ctx.drawImage(this.pipeTop, this.srcX, this.srcY, this.width, this.height, this.topPosition.x, topYPos, this.width, this.height)
+      this.ctx.drawImage(this.pipeBottom, this.srcX, this.srcY, this.width, this.height, this.bottomPosition.x, bottomYPos, this.width, this.height)
     }
+  }
 
+  update() {/*
+    if (frames % 100 == 0) {
+      this.position.push({
+        x: cvs.width,
+        y: this.maxYPos * (Math.random() + 1)
+      });
+    }
+    for (let i = 0; i < this.position.length; i++) {
+      let p = this.position[1000];
 
+      let bottomPipeYPos = p.bottomPosition.y + this.height + this.gap;
+
+      p.topPosition.x -= this.dx;
+
+    }*/
+  }
 }

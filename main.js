@@ -12,7 +12,6 @@ class Main {
         this.cvs = cvs;
         this.ctx = ctx;
         this.state = state;
-        this.frames = 0;
         this.pipes = new Pipes(cvs, ctx);
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx);
@@ -21,7 +20,7 @@ class Main {
         this.collisions = {
             fgCollision : this.cvs.height-this.foreground.h       
         }
-        this.birb = new Birb(cvs, ctx, this.frames, this.collisions);
+        this.birb = new Birb(cvs, ctx, this.collisions);
         this.controls = new Controls(body, this.birb);
        
     }

@@ -18,22 +18,28 @@ export class Birb {
             this.frame = 0;
             this.birbSprite = new Image();
             this.birbSprite.src = "images/birb.png";
+            this.degree = 0;
+            this.rotation = 0;
             this.speed = 0;
             this.gravity = 0.05;
-            this.jump = 2.3;
+            this.jump = 2.8;
 
     }
 
     draw() {
         //let birb = this.animation[this.frame];
         let animation = this.animation[this.frame];
-        this.ctx.drawImage(this.birbSprite, animation.sX, animation.sY, this.w, this.h, this.x, this.y,
+        this.ctx.save();
+        this.ctx.translate(this.x, this.y)
+        this.ctx.rotate(this.rotation)
+        this.ctx.drawImage(this.birbSprite, animation.sX, animation.sY, this.w, this.h,  - this.w/2, - this.h/2,
             this.w, this.h);
+        this.ctx.restore();
 
     }
 
     update() {
-
+        
         //Animation
         let period = 5;
         this.frame += this.frames % period == 0 ? 1 : 0;

@@ -1,38 +1,70 @@
 export class Pipes {
-    constructor(cvs, ctx) {
-        this.cvs = cvs;
-        this.ctx = ctx;
-             
-        this.topsX = 0,
-        this.topsY = 0,
-        
-        this.topx = 500,
-        this.topy = -80,
+  constructor(cvs, ctx, state) {
+    this.cvs = cvs,
+      this.ctx = ctx,
+      this.state = state,
+            
+      this.positions = [],
+      this.topsX = 0,
+      this.topsY = 0,
+      this.top = {
+        sX: 100,
+        sY: 0
+      },
+      this.bottom = {
+        sX: 0,
+        sY: 0
+      },
 
-        this.topw = 100,
-        this.toph = 249;
+      this.w = 100,
+      this.h = 564,
+      this.gap = 85,
+      this.maxYPos = -250,
+      this.dx = 2,
 
-        this.pipeTop = new Image();
-        this.pipeTop.src = "images/TopPipe.png"; 
+      this.pipeSprite = new Image();
+      this.pipeSprite.src = "images/dubblePipes.png";
+  }
+
+  draw() {
+   for (let i = 0; i < this.positions.length; i++) {
+      let p = this.positions[i];
+
+      let topYPos = p.y;
+      let bottomYPos = p.y + this.h + this.gap;
+
+      this.ctx.drawImage(this.pipeSprite, this.top.sX, this.top.sY, this.w, this.h, p.x, topYPos, this.w, this.h);
+
+      this.ctx.drawImage(this.pipeSprite, this.bottom.sX, this.bottom.sY, this.w, this.h, p.x, bottomYPos, this.w, this.h);
+    }
+  }
+
+  update(state, frames) {
+    if (state.current !== state.game) return;
+
+    if (frames % 100 == 0) {
+      this.positions.push({
+        x : this.cvs.width,
+        y : this.maxYPos * (Math.random() + 1)
+
+      });
+    }
+    //let wait = 5;
+    //setTimeout(function(){
+   // for (let i = 0; i < this.positions.length; i++) {
+      let p = this.positions[0];
       
-        this.btmsX = 0,
-        this.btmsY = 0,
-        
-        this.btmx = 500,
-        this.btmy = 240,
+      p.x -= this.dx;
 
-        this.btmw = 100,
-        this.btmh = 249;
+      if(p.x + this.w <=0){
+        this.positions.shift();
+      }
+    //console.log(this.positions.length)
+   // }
+  //}, wait)
+  }
 
-        this.pipeBottom = new Image();
-        this.pipeBottom.src = "images/BottomPipe.png"; 
-
-    }
-    
-    draw() {
-        
-      this.ctx.drawImage(this.pipeTop, this.topsX, this.topsY, this.topw, this.toph, this.topx, this.topy, this.topw, this.toph);
-      this.ctx.drawImage(this.pipeBottom, this.btmsX, this.btmsY, this.btmw, this.btmh, this.btmx, this.btmy, this.btmw, this.btmh);
-
-    }
+  
 }
+
+

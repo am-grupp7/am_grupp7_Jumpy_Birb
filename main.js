@@ -8,14 +8,14 @@ import { GameOver } from './gameOver.js';
 
 class Main {
   
-    constructor(cvs, ctx, body, state) {
+    constructor(cvs, ctx, body, state, frames) {
         this.cvs = cvs;
         this.ctx = ctx;
         this.state = state;
-        this.frames = 0;
-        this.pipes = new Pipes(cvs, ctx);
+        this.frames = frames;
+        this.pipes = new Pipes(cvs, ctx, state);
         this.background = new Background(ctx);
-        this.foreground = new Foreground(ctx);
+        this.foreground = new Foreground(ctx, state);
         this.startScreen = new StartScreen(cvs, ctx, state);
         this.gameOver = new GameOver(cvs, ctx, state);
         this.collisions = {
@@ -40,12 +40,15 @@ class Main {
     //Update
     update() {
         this.birb.update();
+        this.foreground.update(state);
+        this.pipes.update(state, frames);
     }
 
     //Gameloop
     loop() {
         this.update();
         this.draw();
+        this.frames++;
         requestAnimationFrame(() => this.loop());
     }
 
@@ -57,11 +60,12 @@ class Main {
 const cvs = document.getElementById("canvas");
 const ctx = cvs.getContext("2d");
 const body = document.body;
+let frames = 0;
 const state = {
-    current : 0,
+    current : 1,
     getReady : 0,
     game : 1,
     over : 2
 }
-let app = new Main(cvs, ctx, body, state);
+let app = new Main(cvs, ctx, body, state, frames);
 app.start()

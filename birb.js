@@ -18,9 +18,10 @@ export class Birb {
             this.frame = 0,
             this.birbSprite = new Image(),
             this.birbSprite.src = "images/birb.png",
-            this.speed = 0,
-            this.gravity = 0.05,
-            this.jump = 2.3;
+            this.speed = 2.5,
+            this.gravity = 0.03,
+            // this.wall = 3,
+            this.jump = 1;
 
     }
 

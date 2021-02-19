@@ -8,7 +8,7 @@ import { GameOver } from './gameOver.js';
 
 class Main {
   
-    constructor(cvs, ctx, body, state) {
+    constructor(cvs, ctx, state) {
         this.cvs = cvs;
         this.ctx = ctx;
         this.state = state;
@@ -22,7 +22,7 @@ class Main {
             fgCollision : this.cvs.height-this.foreground.h       
         }
         this.birb = new Birb(cvs, ctx, this.frames, this.collisions);
-        this.controls = new Controls(body, this.birb);
+        this.controls = new Controls(this.birb);
        
     }
 
@@ -56,12 +56,11 @@ class Main {
 
 const cvs = document.getElementById("canvas");
 const ctx = cvs.getContext("2d");
-const body = document.body;
 const state = {
     current : 0,
     getReady : 0,
     game : 1,
     over : 2
 }
-let app = new Main(cvs, ctx, body, state);
+let app = new Main(cvs, ctx, state);
 app.start()

@@ -1,6 +1,6 @@
 export class Pipes {
   constructor(cvs, ctx, state) {
-    this.cvs = cvs
+      this.cvs = cvs
       this.ctx = ctx
       this.state = state
                   
@@ -58,8 +58,7 @@ export class Pipes {
       p.x -= this.dx;
       
       if(p.x + this.w <= 0){
-        this.positions.shift();
-        
+        this.positions.shift();  
       }
     
    }

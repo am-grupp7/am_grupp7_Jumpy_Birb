@@ -48,7 +48,7 @@ export class Birb {
     update() {
         const DEGREE = Math.PI / 180;
         //Animation
-        let period = this.state.current == 0 ? 1 : 5;
+        let period = this.state.current == 0 ? 10 : 5;
 
         this.frame += this.frames % period == 0 ? 1 : 0;
         this.frame = this.frame % this.animation.length;
@@ -81,9 +81,9 @@ export class Birb {
 
 
             }
-
-            this.frames++;
         }
+
+        this.frames++;
     }
 
     flap() {

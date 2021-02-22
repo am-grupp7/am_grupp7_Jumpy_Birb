@@ -15,7 +15,8 @@ export class GameOver {
     }
     
     draw(state) {
-        if(state.current === state.over)
+        if(state.current === state.over) {
         this.ctx.drawImage(this.gameOverSprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
         }
+    }
 }

@@ -13,9 +13,9 @@ class Main {
         this.ctx = ctx;
         this.state = state;
         this.frames = 0;
-        this.pipes = new Pipes(cvs, ctx);
+        this.pipes = new Pipes(cvs, ctx, state);
         this.background = new Background(ctx);
-        this.foreground = new Foreground(ctx);
+        this.foreground = new Foreground(ctx, state);
         this.startScreen = new StartScreen(cvs, ctx, state);
         this.gameOver = new GameOver(cvs, ctx, state);
         this.collisions = {
@@ -29,9 +29,9 @@ class Main {
     //Draw
     draw() {
         this.background.draw();
-        this.birb.draw();
         this.pipes.draw();
         this.foreground.draw();
+        this.birb.draw();
         this.startScreen.draw(state);
         this.gameOver.draw(state);
         //Här lägger vi våra nya classer. Se BIRB för hur man gör med import/export.
@@ -40,12 +40,15 @@ class Main {
     //Update
     update() {
         this.birb.update();
+        this.foreground.update(state);
+        this.pipes.update(state, this.frames);
     }
 
     //Gameloop
     loop() {
         this.update();
         this.draw();
+        this.frames++;
         requestAnimationFrame(() => this.loop());
     }
 
@@ -57,7 +60,7 @@ class Main {
 const cvs = document.getElementById("canvas");
 const ctx = cvs.getContext("2d");
 const state = {
-    current : 0,
+    current : 1,
     getReady : 0,
     game : 1,
     over : 2

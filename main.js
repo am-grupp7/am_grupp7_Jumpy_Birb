@@ -13,7 +13,6 @@ class Main {
     constructor(cvs, ctx, state, score) {
         this.cvs = cvs;
         this.ctx = ctx;
-        this.state = state;
         this.frames = 0;
         this.pipes = new Pipes(cvs, ctx, state, score);
         this.background = new Background(ctx);
@@ -23,8 +22,8 @@ class Main {
         this.collisions = {
             fgCollision : this.cvs.height-this.foreground.h       
         }
-        this.birb = new Birb(cvs, ctx, this.frames, this.collisions);
-        this.controls = new Controls(this.birb);
+        this.birb = new Birb(cvs, ctx, this.collisions, state);
+        this.controls = new Controls(this.birb, state);
         this.score = new Score(score, ctx, cvs);
        
     }
@@ -66,7 +65,7 @@ class Main {
 const cvs = document.getElementById("canvas");
 const ctx = cvs.getContext("2d");
 const state = {
-    current : 1,
+    current : 0,
     getReady : 0,
     game : 1,
     over : 2

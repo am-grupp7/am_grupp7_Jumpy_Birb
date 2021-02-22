@@ -42,7 +42,7 @@ export class Birb {
         this.speed += this.gravity;
         this.y += this.speed;
 
-        
+                // kolla canvas highten och bara kolla y om den är högre än canvas heighten 
         //if(state.current == state.getReady()){this.y = 150} else {
         //Movement 
        

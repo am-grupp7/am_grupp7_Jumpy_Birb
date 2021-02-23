@@ -24,7 +24,7 @@ class Main {
         }
         this.birb = new Birb(cvs, ctx, this.collisions, state);
         this.controls = new Controls(this.birb, state);
-        this.score = new Score(score, ctx, cvs);
+        this.score = new Score(score, ctx, cvs, state);
        
     }
 
@@ -36,8 +36,7 @@ class Main {
         this.birb.draw();
         this.startScreen.draw(state);
         this.gameOver.draw(state);
-        this.score.draw(score);
-        //console.log(this.score)
+        this.score.draw(score, cvs, state);
         //Här lägger vi våra nya classer. Se BIRB för hur man gör med import/export.
     }
 

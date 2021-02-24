@@ -56,7 +56,7 @@ export class Pipes {
       let p = this.positions[i];
 
 
-      let bottomYPos = p.y + this.h + this.gap;
+      let bottomYPos = p.y + this.height + this.gap;
 
       if (birb.xPos + birb.width / 2 > p.x && birb.xPos - birb.width / 2 < p.x + this.width && birb.yPos + birb.height / 2 > p.y && birb.yPos - birb.height / 2 < p.y + this.height) {
         state.current = state.over;

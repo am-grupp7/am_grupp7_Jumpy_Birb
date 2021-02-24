@@ -60,7 +60,7 @@ export class Pipes {
       if (p.x + this.w <= 0) {
         this.positions.shift();
         score.value += 1;
-        console.log(score.value)
+        
 
 
       }

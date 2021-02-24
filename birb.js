@@ -12,17 +12,17 @@ export class Birb {
         ],
             this.x = 50,
             this.y = 0,
-            this.w = 50,
+            this.w = 33,
             this.h = 26,
             this.frames = 0,
             this.frame = 0,
             this.birbSprite = new Image(),
             this.birbSprite.src = "images/birb.png",
             this.rotation = 0;
-            this.speed = 2.5,
+        this.speed = 2.5,
             this.gravity = 0.03,
             this.jump = 1;
-            this.state = state;
+        this.state = state;
 
     }
 
@@ -64,23 +64,93 @@ export class Birb {
             this.speed += this.gravity;
             this.y += this.speed;
 
-            if (this.y + this.h / 2 >= this.collisions.fgCollision) {
-                this.y = this.collisions.fgCollision - this.h / 2;
+            if (this.y + this.h / 2 >= this.collisions.fg) {
+                this.y = this.collisions.fg - this.h / 2;
                 if (this.state.current == this.state.game) {
                     this.state.current = this.state.over;
+                }
+            }
+
+            if (this.y + this.h / 2 <= this.collisions.top) {
+                this.y = this.collisions.top - this.h / 2;
+                if (this.state.current == this.state.game) {
+                    this.state.current = this.state.over;
+                    return;
+                }
+
+            }
+
+
+            function frame() {
+                console.log("hello")
+                if (this.x == 1) {
+                    clearInterval(id);
+                } else {
+                    console.log("minus x", this.x)
+                    this.x--;
+                }
+            }
+
+            //pipes
+            if (this.collisions.pipes.length > 0) {
+                let id = null;
+                if (this.y + this.h / 2 > this.collisions.pipes[0].y || this.y + this.h / 2 < this.collisions.pipes[0].y + this.collisions.gap + 100 &&
+                    this.x + this.w / 2 >= this.collisions.pipes[0].x  // the pipes in x 
+                       //the lower pipe
+                     // the top pipe
+                    ) 
+                     {
+
+                    console.log("just nu")
+                    this.state.current = this.state.over;
+                    this.collisions.pipes = [];
+
+                /*if (this.x + this.w/2 > this.collisions.pipes[0].x && this.x -this.w/2 < this.collisions.pipes[0].x) */
+                    
+                    //clearInterval(id);
+                    //id = setInterval(frame, 10)
+                   
+
+
+
+
+
+
 
                 }
             }
+
+
+
+
+
+            /*             if ( birdX >= pipeMinX && birdX <= pipeMaxX && birdY >= pipeMinY && birdY <= pipeMaxY) { ... }
+             */
+            /*     if (frames % 150 == 0) {
+                    this.positions.push({
+                      x: this.cvs.width,
+                      y: this.maxYPos * (Math.random() + 1)
+              
+                    });
+              
+                  } */
+
+            /*    this.collisions = {
+                   fg : this.cvs.height-this.foreground.h + 35,
+                   top : 0,
+                   pipe : this.pipes.positions[0].x
+               } */
+
+
+
+
 
             //Bird is falling:
             if (this.speed >= this.jump) {
                 this.rotation = 90 * DEGREE;
                 this.frame = 1;
             } else {
-
                 this.rotation = -25 * DEGREE;
-
-
             }
         }
 
@@ -88,6 +158,9 @@ export class Birb {
     }
 
     flap() {
+        if (this.state.current == this.state.over) {
+            return;
+        }
         this.speed -= this.jump;
     }
 }

@@ -20,7 +20,10 @@ class Main {
         this.startScreen = new StartScreen(cvs, ctx, state);
         this.gameOver = new GameOver(cvs, ctx, state);
         this.collisions = {
-            fgCollision : this.cvs.height-this.foreground.h       
+            fg : this.cvs.height-this.foreground.h + 35,
+            top : 0,
+            pipes : this.pipes.positions,
+            gap : this.pipes.gap
         }
         this.birb = new Birb(cvs, ctx, this.collisions, state);
         this.controls = new Controls(this.birb, state);
@@ -37,15 +40,14 @@ class Main {
         this.startScreen.draw(state);
         this.gameOver.draw(state);
         this.score.draw(score);
-        //console.log(this.score)
         //Här lägger vi våra nya classer. Se BIRB för hur man gör med import/export.
     }
 
     //Update
     update() {
+        this.pipes.update(state, this.frames, score);
         this.birb.update();
         this.foreground.update(state);
-        this.pipes.update(state, this.frames, score);
 
     }
 

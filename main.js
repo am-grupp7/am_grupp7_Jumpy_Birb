@@ -20,13 +20,13 @@ class Main {
         this.startScreen = new StartScreen(canvas, canvasContext, state);
         this.gameOver = new GameOver(canvas, canvasContext, state);
 
-        this.collisions = {
-            fg : this.canvas.height-this.foreground.h + 35,
+        this.collisionsCoordinates = {
+            fg : this.canvas.height-this.foreground.height + 35,
             top : 0,
             pipes : this.pipes.positions,
             gap : this.pipes.gap
         }
-        this.birb = new Birb(canvas, canvasContext, this.collisions, state);
+        this.birb = new Birb(canvas, canvasContext, this.collisionsCoordinates, state);
         this.controls = new Controls(this.birb, state);
         this.score = new Score(score, canvasContext, canvas, state);
 

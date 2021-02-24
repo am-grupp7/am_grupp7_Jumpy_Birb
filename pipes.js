@@ -58,11 +58,11 @@ export class Pipes {
 
       let bottomYPos = p.y + this.h + this.gap;
 
-      if (birb.x + birb.w / 2 > p.x && birb.x - birb.w / 2 < p.x + this.w && birb.y + birb.h / 2 > p.y && birb.y - birb.h / 2 < p.y + this.h) {
+      if (birb.xPos + birb.width / 2 > p.x && birb.xPos - birb.width / 2 < p.x + this.width && birb.yPos + birb.height / 2 > p.y && birb.yPos - birb.height / 2 < p.y + this.height) {
         state.current = state.over;
       }
 
-      if (birb.x + birb.w / 2 > p.x && birb.x - birb.w / 2 < p.x + this.w && birb.y + birb.h / 2 > bottomYPos && birb.y - birb.h / 2 < bottomYPos + this.h) {
+      if (birb.xPos + birb.width / 2 > p.x && birb.xPos - birb.width / 2 < p.x + this.width && birb.yPos + birb.height / 2 > bottomYPos && birb.yPos - birb.height / 2 < bottomYPos + this.height) {
         state.current = state.over;
       }
 

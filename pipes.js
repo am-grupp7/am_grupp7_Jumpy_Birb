@@ -40,7 +40,7 @@ export class Pipes {
     }
   }
 
-  update(state, frames, score) {
+  update(state, frames, score, birb) {
     if (state.current !== state.game) return;
 
     if (frames % 150 == 0) {
@@ -54,6 +54,17 @@ export class Pipes {
 
     for (let i = 0; i < this.positions.length; i++) {
       let p = this.positions[i];
+
+
+      let bottomYPos = p.y + this.h + this.gap;
+
+      if (birb.x + birb.w / 2 > p.x && birb.x - birb.w / 2 < p.x + this.w && birb.y + birb.h / 2 > p.y && birb.y - birb.h / 2 < p.y + this.h) {
+        state.current = state.over;
+      }
+
+      if (birb.x + birb.w / 2 > p.x && birb.x - birb.w / 2 < p.x + this.w && birb.y + birb.h / 2 > bottomYPos && birb.y - birb.h / 2 < bottomYPos + this.h) {
+        state.current = state.over;
+      }
 
       p.x -= this.speedDeltaX;
 

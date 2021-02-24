@@ -14,7 +14,7 @@ class Main {
         this.cvs = cvs;
         this.ctx = ctx;
         this.frames = 0;
-        this.pipes = new Pipes(cvs, ctx, state, score);
+        
         this.background = new Background(ctx);
         this.foreground = new Foreground(ctx, state);
         this.startScreen = new StartScreen(cvs, ctx, state);
@@ -23,6 +23,7 @@ class Main {
             fgCollision : this.cvs.height-this.foreground.h       
         }
         this.birb = new Birb(cvs, ctx, this.collisions, state);
+        this.pipes = new Pipes(cvs, ctx, state, score);
         this.controls = new Controls(this.birb, state);
         this.score = new Score(score, ctx, cvs, state);
        
@@ -44,7 +45,7 @@ class Main {
     update() {
         this.birb.update();
         this.foreground.update(state);
-        this.pipes.update(state, this.frames, score);
+        this.pipes.update(state, this.frames, score, this.birb);
 
     }
 

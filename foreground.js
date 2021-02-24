@@ -1,27 +1,28 @@
 export class Foreground {
-    constructor(ctx, state) {
-        this.ctx = ctx;
+    constructor(canvasContext, state) {
+        this.canvasContext = canvasContext;
         this.state = state;               
-        this.sX = 0,
-        this.sY = 0,
-        this.x = 0,
-        this.y = 345,
-        this.w = 720,
-        this.h = 105;
-        this.dx = 2;
+        this.spriteX = 0,
+        this.spriteY = 0,
+        this.xPos = 0,
+        this.yPos = 345,
+        this.width = 720,
+        this.height = 105;
+        this.speedDeltaX = 2;
 
         this.foregroundSprite = new Image();
         this.foregroundSprite.src = "images/foreground.png"; 
     }
     
     draw() {
-        this.ctx.drawImage(this.foregroundSprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
-        this.ctx.drawImage(this.foregroundSprite, this.sX, this.sY, this.w, this.h, this.x + (this.w - 5), this.y, this.w, this.h);
+        this.canvasContext.drawImage(this.foregroundSprite, this.spriteX, this.spriteY, this.width, this.height, this.xPos, this.yPos, this.width, this.height);
+        this.canvasContext.drawImage(this.foregroundSprite, this.spriteX, this.spriteY, this.width, this.height, this.xPos + (this.width - 5), this.yPos, this.width, this.height);
     }
 
     update(state) {
         if(state.current === state.game) {
-            this.x = (this.x - this.dx)%(this.w);
+            //Move foreground to the left by this.speedDeltaX
+            this.xPos = (this.xPos - this.speedDeltaX)%(this.width);
         }
     }
 }

@@ -10,23 +10,26 @@ import { GameOver } from './gameOver.js';
 
 class Main {
   
-    constructor(cvs, ctx, state, score) {
-        this.cvs = cvs;
-        this.ctx = ctx;
+    constructor(canvas, canvasContext, state, score) {
+        this.canvas = canvas;
+        this.canvasContext = canvasContext;
         this.frames = 0;
-        
-        this.background = new Background(ctx);
-        this.foreground = new Foreground(ctx, state);
-        this.startScreen = new StartScreen(cvs, ctx, state);
-        this.gameOver = new GameOver(cvs, ctx, state);
+        this.pipes = new Pipes(canvas, canvasContext, state, score);
+        this.background = new Background(canvasContext);
+        this.foreground = new Foreground(canvasContext, state);
+        this.startScreen = new StartScreen(canvas, canvasContext, state);
+        this.gameOver = new GameOver(canvas, canvasContext, state);
+
         this.collisions = {
-            fgCollision : this.cvs.height-this.foreground.h       
+            fg : this.canvas.height-this.foreground.h + 35,
+            top : 0,
+            pipes : this.pipes.positions,
+            gap : this.pipes.gap
         }
-        this.birb = new Birb(cvs, ctx, this.collisions, state);
-        this.pipes = new Pipes(cvs, ctx, state, score);
+        this.birb = new Birb(canvas, canvasContext, this.collisions, state);
         this.controls = new Controls(this.birb, state);
-        this.score = new Score(score, ctx, cvs, state);
-       
+        this.score = new Score(score, canvasContext, canvas, state);
+
     }
 
     //Draw
@@ -37,15 +40,18 @@ class Main {
         this.birb.draw();
         this.startScreen.draw(state);
         this.gameOver.draw(state);
-        this.score.draw(score, cvs, state);
+        this.score.draw(score, canvas, state);
+
         //Här lägger vi våra nya classer. Se BIRB för hur man gör med import/export.
     }
 
     //Update
     update() {
+        
         this.birb.update();
         this.foreground.update(state);
         this.pipes.update(state, this.frames, score, this.birb);
+
 
     }
 
@@ -62,11 +68,11 @@ class Main {
     }
 }
 
-const cvs = document.getElementById("canvas");
-const ctx = cvs.getContext("2d");
+const canvas = document.getElementById("canvas");
+const canvasContext = canvas.getContext("2d");
 const state = {
     current : 0,
-    getReady : 0,
+    start : 0,
     game : 1,
     over : 2
 }
@@ -74,5 +80,5 @@ const score = {
     best : 0,
     value : 0
 }
-let app = new Main(cvs, ctx, state, score);
+let app = new Main(canvas, canvasContext, state, score);
 app.start()

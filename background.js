@@ -1,6 +1,6 @@
 export class Background {
-    constructor(ctx) {
-        this.ctx = ctx;       
+    constructor(canvasContext) {
+        this.canvasContext = canvasContext;       
         this.sX = 0,
         this.sY = 0,
         this.x = 0,
@@ -13,6 +13,6 @@ export class Background {
     }
     
     draw() {
-        this.ctx.drawImage(this.backgroundSprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        this.canvasContext.drawImage(this.backgroundSprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
     }
 }

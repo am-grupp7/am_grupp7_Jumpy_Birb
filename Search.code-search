@@ -1,0 +1,12 @@
+# Query: getReady
+
+3 results - 3 files
+
+birb.js:
+  58:         if (this.state.current == this.state.start) {
+
+controls.js:
+  5:         if(state.current == state.start ) {
+
+startScreen.js:
+  18:         if(state.current === state.start){

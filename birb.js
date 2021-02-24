@@ -55,7 +55,7 @@ export class Birb {
         //
 
         //Reset bird to original position
-        if (this.state.current == this.state.getReady) {
+        if (this.state.current == this.state.start) {
             this.yPos = 150
             this.rotation = 0;
         } else {

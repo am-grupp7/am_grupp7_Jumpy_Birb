@@ -2,8 +2,8 @@ export class Controls {
   constructor(birb, state) {
     document.body.addEventListener('keyup', event => {
       if (event.code === 'Space') {
-        if(state.current == state.getReady ) {
-          state.current = 1;
+        if(state.current == state.start ) {
+          state.current = state.game;
         }
         birb.flap()
       }

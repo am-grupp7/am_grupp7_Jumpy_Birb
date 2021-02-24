@@ -1,17 +1,17 @@
 export class Score {
-    constructor(score, ctx, cvs) {
+    constructor(score, canvasContext, canvas) {
         this.score = score;
-        this.ctx = ctx;
-        this.cvs = cvs;
+        this.canvasContext = canvasContext;
+        this.canvas = canvas;
 
     }
 
     draw() {
-        this.ctx.fillStyle = "green";
-        this.ctx.strokeStyle = "#000";
-        this.ctx.font = "35px Verdana";
-        this.ctx.fillText(this.score.value, 50, 50);
-        this.ctx.strokeText(this.score.value, 50, 50);
+        this.canvasContext.fillStyle = "green";
+        this.canvasContext.strokeStyle = "#000";
+        this.canvasContext.font = "35px Verdana";
+        this.canvasContext.fillText(this.score.value, 50, 50);
+        this.canvasContext.strokeText(this.score.value, 50, 50);
         
 
     }

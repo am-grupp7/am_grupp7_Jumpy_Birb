@@ -1,9 +1,9 @@
 //Visuell representation av Birb.
 export class Birb {
-    constructor(canvas, canvasContext, collisionCordinates, state) {
+    constructor(canvas, canvasContext, collisionsCoordinates, state) {
         this.canvas = canvas;
         this.canvasContext = canvasContext;
-        this.collisionCordinates = collisionCordinates;
+        this.collisionsCoordinates = collisionsCoordinates;
         this.animation = [
             { spriteX: 0, spriteY: 0 },
             { spriteX: 0, spriteY: 24 },
@@ -22,7 +22,7 @@ export class Birb {
             this.fallingSpeed = 2.5,
             this.fallAcceleration = 0.03,
             this.jump = 1.5;
-        this.state = state;
+            this.state = state;
 
     }
 
@@ -88,13 +88,13 @@ export class Birb {
     }
 
     birbIsOutsidePlayArea() {
-        if (this.yPos + this.height / 2 >= this.collisionCordinates.fg) {
-            this.yPos = this.collisionCordinates.fg - this.height / 2;
+        if (this.yPos + this.height / 2 >= this.collisionsCoordinates.fg) {
+            this.yPos = this.collisionsCoordinates.fg - this.height / 2;
             return true;
         }
 
-        if (this.yPos + this.height / 2 <= this.collisionCordinates.top) {
-            this.yPos = this.collisionCordinates.top - this.height / 2;
+        if (this.yPos + this.height / 2 <= this.collisionsCoordinates.top) {
+            this.yPos = this.collisionsCoordinates.top - this.height / 2;
             return true;
 
         }

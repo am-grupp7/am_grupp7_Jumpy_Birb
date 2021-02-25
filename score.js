@@ -24,7 +24,7 @@ export class Score {
             this.canvasContext.fillText(this.score.value, 250, 215);
             this.canvasContext.strokeText(this.score.value, 250, 215);
 
-
+            // HighScore
             let storedBestScore = localStorage.getItem("bestScore");
             if (storedBestScore != null) {
 

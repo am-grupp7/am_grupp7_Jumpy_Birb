@@ -51,8 +51,6 @@ class Main {
         this.birb.update();
         this.foreground.update(state);
         this.pipes.update(state, this.frames, score, this.birb);
-
-
     }
 
     //Gameloop
@@ -80,5 +78,18 @@ const score = {
     best : 0,
     value : 0
 }
+
+const highScore = []
+
+
 let app = new Main(canvas, canvasContext, state, score);
 app.start()
+
+//skiss
+function highScore() {
+    highScore.sort();
+    //highScore.pop();
+   //ta in något i listan
+   //ta bort något från listan
+   //sortera listan
+   }

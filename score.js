@@ -27,5 +27,8 @@ export class Score {
             this.canvasContext.strokeText(this.score.best, 370, 215);
         }
     }
+
+
+    
 }
 

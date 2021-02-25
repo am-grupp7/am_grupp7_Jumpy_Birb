@@ -1,22 +1,22 @@
 export class StartScreen {
-    constructor(cvs, ctx, state) {
-        this.ctx = ctx,
-        this.cvs = cvs, 
+    constructor(canvas, canvasContext, state) {
+        this.canvasContext = canvasContext,
+        this.canvas = canvas, 
         this.state = state,             
-        this.sX = 0,
-        this.sY = 0,
-        this.x = cvs.width/2 - 200/2,
-        this.y = 175,
-        this.w = 200,
-        this.h = 150;
+        this.spriteX = 0,
+        this.spriteY = 0,
+        this.xPos = canvas.width/2 - 200/2,
+        this.yPos = 175,
+        this.width = 200,
+        this.height = 150;
 
         this.startSprite = new Image();
         this.startSprite.src = "images/Start.png"; 
     }
     
     draw(state) {
-        if(state.current === state.getReady){
-        this.ctx.drawImage(this.startSprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        if(state.current === state.start){
+        this.canvasContext.drawImage(this.startSprite, this.spriteX, this.spriteY, this.width, this.height, this.xPos, this.yPos, this.width, this.height);
         }
     }
 }

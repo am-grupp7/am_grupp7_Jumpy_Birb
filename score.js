@@ -45,18 +45,8 @@ export class Score {
             this.canvasContext.strokeText(this.score.best, 370, 215);
         }
 
-        else {
-            this.canvasContext.fillText(this.score.best, 370, 215);
-            this.canvasContext.strokeText(this.score.best, 370, 215);
-        }
-
-
 
     }
-
-
-
-
 
 }
 

@@ -19,7 +19,7 @@ export class Pipes {
     this.width = 100
     this.height = 564
     this.gap = 85
-    this.maxYPos = -275
+    this.maxYPos = -285
     this.speedDeltaX = 2
 
     this.pipeSprite = new Image();
@@ -71,13 +71,11 @@ export class Pipes {
       if (p.x + this.width <= 0) {
         this.positions.shift();
         score.value += 1;
-        
-
-
       }
-
     }
+  },
 
+  reset(){
+    this.positions[];
   }
-
 }

@@ -81,9 +81,9 @@ export class Pipes {
   }
 
   reset() {
-    this.state.current == this.state.game
-    this.top
-    this.bottom 
+ //   this.state.current == this.state.game
+ //   this.top
+ //   this.bottom 
 
   }
 

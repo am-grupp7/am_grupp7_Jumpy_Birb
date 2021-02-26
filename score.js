@@ -22,7 +22,7 @@ export class Score {
         if(this.highScore.length == 11) {
             this.highScore.pop();
         }
-        console.log("bajs");
+        console.log("Heja Frölunda");
        this.showedHighScore = true;
     }
 
@@ -61,7 +61,7 @@ export class Score {
             this.canvasContext.fillText(this.score.best, 370, 215);
             this.canvasContext.strokeText(this.score.best, 370, 215);
 
-            if(this.showedHighscore == false) {
+            if(!this.showedHighscore) {
                 console.log("showedHighscore", this.showedHighScore)
                 this.toHighScoreArr();
             }

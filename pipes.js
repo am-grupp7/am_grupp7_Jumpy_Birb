@@ -76,6 +76,6 @@ export class Pipes {
   }
 
   reset(){
-    this.positions[];
+    this.positions = [];
   }
 }

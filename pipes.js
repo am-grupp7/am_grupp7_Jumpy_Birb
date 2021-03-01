@@ -73,7 +73,7 @@ export class Pipes {
         score.value += 1;
       }
     }
-  },
+  }
 
   reset(){
     this.positions[];

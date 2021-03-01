@@ -6,18 +6,18 @@ export class Birb {
         this.collisionsCoordinates = collisionsCoordinates;
         this.animation = [
             { spriteX: 0, spriteY: 0 },
-            { spriteX: 0, spriteY: 24 },
-            { spriteX: 0, spriteY: 50 },
-            { spriteX: 0, spriteY: 24 }
+            { spriteX: 0, spriteY: 28 },
+            { spriteX: 0, spriteY: 56 },
+            { spriteX: 0, spriteY: 28 }
         ],
             this.xPos = 50,
             this.yPos = 0,
             this.width = 33,
-            this.height = 26,
+            this.height = 28,
             this.frames = 0,
             this.frame = 0,
             this.birbSprite = new Image(),
-            this.birbSprite.src = "images/birb.png",
+            this.birbSprite.src = "images/HampyOrg.png",
             this.rotation = 0;
             this.fallingSpeed = 2.5,
             this.fallAcceleration = 0.03,

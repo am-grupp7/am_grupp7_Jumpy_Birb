@@ -49,8 +49,8 @@ export class Score {
 
     }
 
-    reset(){
-    this.positions[];
+    reset() {
+        this.positions = [];
     }
 
 

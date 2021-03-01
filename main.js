@@ -13,6 +13,7 @@ class Main {
     constructor(canvas, canvasContext, state, score) {
         this.canvas = canvas;
         this.canvasContext = canvasContext;
+        this.state = state;
         this.frames = 0;
         this.pipes = new Pipes(canvas, canvasContext, state, score);
         this.background = new Background(canvasContext);
@@ -27,10 +28,12 @@ class Main {
             gap : this.pipes.gap
         }
         this.birb = new Birb(canvas, canvasContext, this.collisionsCoordinates, state);
-        this.controls = new Controls(this.birb, state, canvas);
+        this.controls = new Controls(this.birb, state, canvas, () => this.reset());
         this.score = new Score(score, canvasContext, canvas, state);
 
     }
+
+   
 
     //Draw
     draw() {
@@ -47,12 +50,9 @@ class Main {
 
     //Update
     update() {
-        
         this.birb.update();
         this.foreground.update(state);
         this.pipes.update(state, this.frames, score, this.birb);
-
-
     }
 
     //Gameloop
@@ -66,7 +66,15 @@ class Main {
     start() {
         this.loop();
     }
+
+    reset() {
+        this.birb.reset();
+        this.pipes.reset();
+        this.score.reset();
+    }
 }
+
+
 
 const canvas = document.getElementById("canvas");
 const canvasContext = canvas.getContext("2d");

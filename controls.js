@@ -1,7 +1,8 @@
 export class Controls {
-  constructor(birb, state, canvas) {
+  constructor(birb, state, canvas, resetFunc) {
     this.canvas = canvas;
     this.state = state;
+    
     document.body.addEventListener('keyup', event => {
       if (event.code === 'Space') {
         if (state.current == state.start) {
@@ -11,20 +12,27 @@ export class Controls {
       }
     })
 
+
     document.body.addEventListener('mousedown', event => {
-      this.getMousePosition(this.canvas, event)
+      if(this.state.over) {
+        this.getMousePosition(this.canvas, event, () => resetFunc())
+       
+      }
+      
     })
 
   }
   
-  getMousePosition(canvas, event) {
-    console.log("hejsvejs");
+  getMousePosition(canvas, event, reset) {
     let rect = canvas.getBoundingClientRect();
     let x = event.clientX - rect.left;
     let y = event.clientY - rect.top;
     if (this.clickedInsideRestartButtonXPos(x) && this.clickedInsideRestartButtonYPos(y) && this.state.current == this.state.over) {
       this.state.current = this.state.start;
+      reset();
+      
     }
+    
   }
 
   clickedInsideRestartButtonXPos(x) {

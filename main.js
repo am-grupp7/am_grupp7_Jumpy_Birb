@@ -2,15 +2,13 @@ import { Birb } from './birb.js';
 import { Background } from './background.js';
 import { Pipes } from './pipes.js';
 import { Foreground } from './foreground.js';
+import { Controls } from './controls.js';
 import { StartScreen } from './startScreen.js';
 import { Score } from './score.js';
 import { GameOver } from './gameOver.js';
 
 
-
 class Main {
-
-    
   
     constructor(canvas, canvasContext, state, score) {
         this.canvas = canvas;
@@ -29,16 +27,8 @@ class Main {
             gap : this.pipes.gap
         }
         this.birb = new Birb(canvas, canvasContext, this.collisionsCoordinates, state);
+        this.controls = new Controls(this.birb, state, canvas);
         this.score = new Score(score, canvasContext, canvas, state);
-
-        document.body.addEventListener('keyup', event => {
-            if (event.code === 'Space') {
-              if(state.current == state.start ) {
-                state.current = state.game;
-              }
-              this.birb.flap()
-            }
-          }) 
 
     }
 
@@ -91,8 +81,4 @@ const score = {
     value : 0
 }
 let app = new Main(canvas, canvasContext, state, score);
-
-
-
-
 app.start()

@@ -74,6 +74,10 @@ export class Pipes {
       }
     }
   }
+
+  reset(){
+    this.positions = [];
+  }
   
  // reset(){
  //   this.positions[];

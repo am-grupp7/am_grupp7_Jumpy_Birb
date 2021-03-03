@@ -17,7 +17,6 @@ export class Score {
             this.canvasContext.strokeText(this.score.value, this.canvas.width / 2, 50);
         }
         else if (this.state.current == this.state.over) {
-
             this.canvasContext.fillStyle = "black";
             this.canvasContext.strokeStyle = "#000";
             this.canvasContext.font = "35px Verdana";
@@ -43,10 +42,15 @@ export class Score {
             }
             this.canvasContext.fillText(this.score.best, 370, 215);
             this.canvasContext.strokeText(this.score.best, 370, 215);
+            
         }
 
 
 
+    }
+
+    reset() {
+        this.score.value = 0;
     }
 
 

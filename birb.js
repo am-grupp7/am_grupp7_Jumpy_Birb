@@ -104,8 +104,17 @@ export class Birb {
 
     flap() {
         if (this.state.current == this.state.over) {
+            ('vafan');
             return;
+        } else {
+            ("happening");
+            (this.state.current)
+            this.fallingSpeed -= this.jump;
         }
-        this.fallingSpeed -= this.jump;
     }
+
+    reset() {
+        this.fallingSpeed = 0;
+    }
+
 }
